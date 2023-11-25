@@ -14,27 +14,24 @@ import {
 
 function Login() {
   return (
-    <>
-      <Container>
-        <Imagelogin src={LoginImagem} alt="Login-image">
-          <ContainerIntens>
-            <img src={Logo} alt="Logo" />
-            <h1>Login</h1>
+    <Container>
+      <Imagelogin src={LoginImagem} alt="Login-image" />
+      <ContainerIntens>
+        <img src={Logo} alt="Logo" />
+        <h1>Login</h1>
 
-            <P>Email</P>
-            <Input />
+        <P>Email</P>
+        <Input />
 
-            <P>Senha</P>
-            <Input />
+        <P>Senha</P>
+        <Input />
 
-            <Button>Sing In</Button>
-            <SingInLink>
-              Não possui conta ? <a>SingUp</a>
-            </SingInLink>
-          </ContainerIntens>
-        </Imagelogin>
-      </Container>
-    </>
+        <Button>Sing In</Button>
+        <SingInLink>
+          Não possui conta ? <a>Sing Up</a>
+        </SingInLink>
+      </ContainerIntens>
+    </Container>
   )
 }
 

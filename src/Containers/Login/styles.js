@@ -10,14 +10,83 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const Imagelogin = styled.image``
+export const Imagelogin = styled.img`
+  height: 85%;
+`
 
-export const ContainerIntens = styled.div``
+export const ContainerIntens = styled.div`
+  background: #373737;
+  border-radius: 0 10px 10px 0;
+  height: 85%;
+  padding: 25px 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-export const P = styled.p``
+  h1 {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 28px;
+    color: #fff;
+    text-align: center;
+    margin-top: 90px;
+  }
+`
 
-export const Input = styled.input``
+export const P = styled.p`
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 14px;
+  color: #fff;
+  margin-top: 25px;
+  margin-bottom: 5px;
+`
 
-export const Button = styled.button``
+export const Input = styled.input`
+  width: 391.42px;
+  height: 38.32px;
+  border-radius: 5px;
+  border: none;
+  background: #ffffff;
+  box-shadow: 3px 3px 10px 0px #4a90e230;
+  padding-left: 10px;
+`
 
-export const SingInLink = styled.p``
+export const Button = styled.button`
+  width: 182.81px;
+  height: 36.13px;
+
+  background: #9758a6;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+  text-align: center;
+
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 25px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+  }
+`
+
+export const SingInLink = styled.p`
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  font-weight: normal;
+  color: #fff;
+
+  a {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+`
