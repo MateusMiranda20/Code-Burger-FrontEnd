@@ -23,6 +23,11 @@ export const ContainerIntens = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   h1 {
     font-size: 24px;
     font-weight: 300;
@@ -46,7 +51,7 @@ export const Input = styled.input`
   width: 391.42px;
   height: 38.32px;
   border-radius: 5px;
-  border: none;
+  border: ${props => (props.error ? ' 2px solid #CC1717' : 'none')};
   background: #ffffff;
   box-shadow: 3px 3px 10px 0px #4a90e230;
   padding-left: 10px;
@@ -89,4 +94,11 @@ export const SingInLink = styled.p`
     cursor: pointer;
     text-decoration: underline;
   }
+`
+export const ErrorMessage = styled.p`
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+  color: #cc1717;
+  margin-top: 2px;
 `
