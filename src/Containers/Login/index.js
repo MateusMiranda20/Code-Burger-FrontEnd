@@ -6,13 +6,14 @@ import * as Yup from 'yup'
 
 import LoginImagem from '../../assets/Login.svg'
 import Logo from '../../assets/Logo.svg'
+import Button from '../../components/Button'
+import api from '../../services/api'
 import {
   Container,
   Imagelogin,
   ContainerIntens,
   P,
   Input,
-  Button,
   SingInLink,
   ErrorMessage
 } from './styles'
@@ -35,7 +36,13 @@ function Login() {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = async clientData => {
+    const response = await api.post('secao', {
+      email: clientData.email,
+      password: clientData.password
+    })
+    console.log(response)
+  }
 
   return (
     <Container>
@@ -61,7 +68,9 @@ function Login() {
           />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit">Sing In</Button>
+          <Button type="submit" style={{ marginTop: 20, marginBottom: 25 }}>
+            Sing In
+          </Button>
         </form>
         <SingInLink>
           Não possui conta ? <a>Sing Up</a>
