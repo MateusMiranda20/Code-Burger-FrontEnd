@@ -1,17 +1,16 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
-import LoginImagem from '../../assets/Login.svg'
 import Logo from '../../assets/Logo.svg'
+import Registerimg from '../../assets/Register.svg'
 import Button from '../../components/Button'
 import api from '../../services/api'
 import {
   Container,
-  Imagelogin,
+  RegisterImg,
   ContainerIntens,
   P,
   Input,
@@ -19,14 +18,19 @@ import {
   ErrorMessage
 } from './styles'
 
-function Login() {
+function Register() {
   const schema = Yup.object().shape({
+    name: Yup.string('O nome é obrigatório').required(),
     email: Yup.string()
       .email('Digite um e-mail válido')
       .required('O e-mail é obrigatório'),
     password: Yup.string()
       .required('A senha é obrigatória')
+      .min(6, 'A senha deve ter pelo menos 6 digítos.'),
+    confirmPassword: Yup.string()
+      .required('A senha é obrigatória')
       .min(6, 'A senha deve ter pelo menos 6 digítos.')
+      .oneOf([Yup.ref('password')], 'As senhas devem ser iguais')
   })
 
   const {
@@ -38,29 +42,31 @@ function Login() {
   })
 
   const onSubmit = async clientData => {
-    const response = await toast.promise(
-      api.post('secao', {
-        email: clientData.email,
-        password: clientData.password
-      }),
-      {
-        pending: 'Verificando seus dados',
-        success: 'Seja bem-vindos(a)',
-        error: 'Verifique seu e-mail e senha'
-      }
-    )
+    const response = await api.post('users', {
+      name: clientData.name,
+      email: clientData.email,
+      password: clientData.password
+    })
     console.log(response)
   }
 
   return (
     <Container>
-      <Imagelogin src={LoginImagem} alt="Login-image" />
+      <RegisterImg src={Registerimg} alt="Login-image" />
       <ContainerIntens>
         <form noValidate onSubmit={handleSubmit(onSubmit)}>
           <img src={Logo} alt="Logo" />
-          <h1>Login</h1>
+          <h1>Cadastre-se</h1>
 
-          <P>Email</P>
+          <P error={errors.name?.message}>Nome</P>
+          <Input
+            type="text"
+            {...register('name')}
+            error={errors.name?.message}
+          />
+          <ErrorMessage>{errors.name?.message}</ErrorMessage>
+
+          <P error={errors.email?.message}>Email</P>
           <Input
             type="email"
             {...register('email')}
@@ -68,7 +74,7 @@ function Login() {
           />
           <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-          <P>Senha</P>
+          <P error={errors.password?.message}>Senha</P>
           <Input
             type="password"
             {...register('password')}
@@ -76,16 +82,24 @@ function Login() {
           />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
+          <P error={errors.confirmPassword?.message}>Confirmar Senha</P>
+          <Input
+            type="password"
+            {...register('confirmPassword')}
+            error={errors.confirmPassword?.message}
+          />
+          <ErrorMessage>{errors.confirmPassword?.message}</ErrorMessage>
+
           <Button type="submit" style={{ marginTop: 20, marginBottom: 25 }}>
-            Sing In
+            Sing Up
           </Button>
         </form>
         <SingInLink>
-          Não possui conta ? <a>Sing Up</a>
+          Já possui conta ? <a>Sing In</a>
         </SingInLink>
       </ContainerIntens>
     </Container>
   )
 }
 
-export default Login
+export default Register

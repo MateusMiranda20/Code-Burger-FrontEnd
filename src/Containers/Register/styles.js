@@ -10,14 +10,14 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 `
-export const Imagelogin = styled.img`
-  height: 85%;
+export const RegisterImg = styled.img`
+  height: 87%;
 `
 
 export const ContainerIntens = styled.div`
   background: #373737;
   border-radius: 0 10px 10px 0;
-  height: 85%;
+  height: 87%;
   padding: 25px 75px;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ export const ContainerIntens = styled.div`
     line-height: 28px;
     color: #fff;
     text-align: center;
-    margin-top: 90px;
+    margin-top: 10px;
   }
 `
 
@@ -43,7 +43,7 @@ export const P = styled.p`
   font-weight: 500;
   line-height: 14px;
   color: #fff;
-  margin-top: 25px;
+  margin-top: ${props => (props.error ? ' 12px' : '28px')};
   margin-bottom: 5px;
 `
 
@@ -89,6 +89,7 @@ export const SingInLink = styled.p`
   line-height: 16px;
   font-weight: normal;
   color: #fff;
+  margin-bottom: 5px;
 
   a {
     cursor: pointer;
