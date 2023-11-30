@@ -89,7 +89,7 @@ export const SingInLink = styled.p`
   line-height: 16px;
   font-weight: normal;
   color: #fff;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
 
   a {
     cursor: pointer;
