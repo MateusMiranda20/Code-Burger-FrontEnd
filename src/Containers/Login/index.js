@@ -1,5 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -8,8 +9,8 @@ import * as Yup from 'yup'
 import LoginImagem from '../../assets/Login.svg'
 import Logo from '../../assets/Logo.svg'
 import Button from '../../components/Button'
+import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
-import { useUser } from './hooks/UserContext'
 import {
   Container,
   Imagelogin,
@@ -21,9 +22,8 @@ import {
 } from './styles'
 
 function Login() {
-  const users = useUser()
-
-  console.log(users)
+  const { putUserData, userData } = useUser()
+  console.log(userData)
 
   const schema = Yup.object().shape({
     email: Yup.string()
@@ -43,7 +43,7 @@ function Login() {
   })
 
   const onSubmit = async clientData => {
-    const response = await toast.promise(
+    const { data } = await toast.promise(
       api.post('secao', {
         email: clientData.email,
         password: clientData.password
@@ -54,7 +54,8 @@ function Login() {
         error: 'Verifique seu e-mail e senha'
       }
     )
-    console.log(response)
+
+    putUserData(data)
   }
 
   return (
@@ -86,7 +87,10 @@ function Login() {
           </Button>
         </form>
         <SingInLink>
-          Não possui conta ? <a>Sing Up</a>
+          Não possui conta ?{' '}
+          <Link style={{ color: ' white' }} to="/cadastro">
+            Sing Up
+          </Link>
         </SingInLink>
       </ContainerIntens>
     </Container>
