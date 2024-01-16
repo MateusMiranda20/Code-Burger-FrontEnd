@@ -13,13 +13,32 @@ function CategoryCarousel() {
 
       setCategories(data)
     }
+
     loadCategories()
   }, [])
+  const breakPoints = [
+    { width: 100, itemsToShow: 1 },
+    { width: 400, itemsToShow: 2 },
+    { width: 600, itemsToShow: 3 },
+    { width: 1000, itemsToShow: 4 }
+  ]
   return (
     <Container>
       <CategoryImg src={Category} alt="logo do categoria" />
 
-      <Carousel itemsToShow={4}>{categories.map}</Carousel>
+      <Carousel
+        itemsToShow={4}
+        style={{ width: '100%' }}
+        breakPoints={breakPoints}
+      >
+        {categories &&
+          categories.map(category => (
+            <div key={category.id}>
+              <img src={category.url} alt="foto da categoria" />
+              <button>{category.name}</button>
+            </div>
+          ))}
+      </Carousel>
     </Container>
   )
 }

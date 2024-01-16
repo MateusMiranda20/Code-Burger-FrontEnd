@@ -11,7 +11,7 @@ function MyRoutes() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
-        <Route path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />} />
       </Routes>
     </Router>
   )
