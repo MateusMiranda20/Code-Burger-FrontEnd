@@ -6,7 +6,7 @@ const apiCodeBurger = axios.create({
 
 apiCodeBurger.interceptors.request.use(async config => {
   const userData = await localStorage.getItem('codeburger:userData')
-  const token = JSON.parse(userData).token
+  const token = userData && JSON.parse(userData).token
   config.headers.Authorization = `Bearer ${token}`
   return config
 })
