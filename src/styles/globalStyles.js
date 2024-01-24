@@ -11,5 +11,6 @@ export default createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         outline: none;
         overflow: hidden;
+        overflow-y: auto;
     }
 `
