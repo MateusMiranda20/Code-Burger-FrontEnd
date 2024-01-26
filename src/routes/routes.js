@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Home from '../Containers/Home'
 import Login from '../Containers/Login'
+import Product from '../Containers/Products'
 import Register from '../Containers/Register'
 
 function MyRoutes() {
@@ -12,6 +13,7 @@ function MyRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
         <Route exact path="/" element={<Home />} />
+        <Route path="/produto" element={<Product />} />
       </Routes>
     </Router>
   )

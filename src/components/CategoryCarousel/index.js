@@ -20,15 +20,16 @@ function CategoryCarousel() {
     { width: 1, itemsToShow: 1 },
     { width: 400, itemsToShow: 2 },
     { width: 600, itemsToShow: 3 },
-    { width: 900, itemsToShow: 4 }
+    { width: 900, itemsToShow: 4 },
+    { width: 1200, itemsToShow: 5 }
   ]
   return (
     <Container>
       <CategoryImg src={Category} alt="logo do categoria" />
 
       <Carousel
-        itemsToShow={4}
-        style={{ width: '90%' }}
+        itemsToShow={5}
+        style={{ width: '80%' }}
         breakPoints={breakPoints}
       >
         {categories &&
