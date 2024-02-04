@@ -11,13 +11,13 @@ export const Container = styled.div`
   align-items: center;
 `
 export const RegisterImg = styled.img`
-  height: 87%;
+  height: 92%;
 `
 
 export const ContainerIntens = styled.div`
   background: #373737;
   border-radius: 0 10px 10px 0;
-  height: 87%;
+  height: 92%;
   padding: 25px 75px;
   display: flex;
   flex-direction: column;
