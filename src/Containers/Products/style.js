@@ -24,3 +24,5 @@ export const CategoryButton = styled.button`
     color: #9758a6;
   }
 `
+
+export const ProductsContainer = styled.div``

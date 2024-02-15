@@ -113,7 +113,7 @@ function Register() {
         </form>
         <SingInLink>
           Já possui conta ?{' '}
-          <Link style={{ color: 'white' }} to="/login">
+          <Link style={{ color: 'white' }} to="/Login">
             Sing In
           </Link>
         </SingInLink>
