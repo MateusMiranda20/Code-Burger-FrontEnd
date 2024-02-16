@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 import ProductLogo from '../../assets/product.png'
-import CardProduct from '../../components/CardProduct'
+import { CardProduct } from '../../components'
 import api from '../../services/api'
+import formatCurrency from '../../utils/formatCurrency'
 import {
   Container,
   ProductImg,
@@ -11,9 +12,10 @@ import {
   ProductsContainer
 } from './style'
 
-function Product() {
+export function Product() {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
+  const [filteredProducts, setfilteredProducts] = useState([])
   const [activeCategory, setActiveCategory] = useState(0)
   useEffect(() => {
     async function loadCategories() {
@@ -27,14 +29,29 @@ function Product() {
     loadCategories()
 
     async function loadProducts() {
-      const { data } = await api.get('products')
+      const { data: allProducts } = await api.get('products')
 
-      console.log(data)
-      setProducts(data)
+      const newProducts = allProducts.map(products => {
+        return { ...products, formatedPrice: formatCurrency(products.price) }
+      })
+
+      setProducts(newProducts)
     }
 
     loadProducts()
   }, [])
+
+  useEffect(() => {
+    if (activeCategory === 0) {
+      setfilteredProducts(products)
+    } else {
+      const newFilteredProducts = products.filter(
+        products => products.category.id === activeCategory
+      )
+
+      setfilteredProducts(newFilteredProducts)
+    }
+  }, [activeCategory, products])
 
   return (
     <Container>
@@ -55,10 +72,11 @@ function Product() {
           ))}
       </CategoriesMenu>
       <ProductsContainer>
-        <CardProduct />
+        {filteredProducts &&
+          filteredProducts.map(products => (
+            <CardProduct key={products.id} products={products} />
+          ))}
       </ProductsContainer>
     </Container>
   )
 }
-
-export default Product
