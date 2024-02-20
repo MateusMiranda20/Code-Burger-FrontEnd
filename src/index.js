@@ -2,16 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { ToastContainer } from 'react-toastify'
 
-import { UserProvider } from './hooks/UserContext'
+import AppProvider from './hooks'
 import Routes from './routes/routes'
 import GlobalStyles from './styles/globalStyles'
 
 // eslint-disable-next-line react/no-deprecated
 ReactDOM.render(
   <>
-    <UserProvider>
+    <AppProvider>
       <Routes />
-    </UserProvider>
+    </AppProvider>
     <ToastContainer autoClose={2000} />
     <GlobalStyles />
   </>,
