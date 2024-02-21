@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import { Home, Login, Product, Register } from '../Containers'
+import { Home, Login, Product, Register, Cart } from '../Containers'
 
 function MyRoutes() {
   return (
@@ -11,6 +11,7 @@ function MyRoutes() {
         <Route path="/cadastro" element={<Register />} />
         <Route exact path="/" element={<Home />} />
         <Route path="/produto" element={<Product />} />
+        <Route path="/carrinho" element={<Cart />} />
       </Routes>
     </Router>
   )
