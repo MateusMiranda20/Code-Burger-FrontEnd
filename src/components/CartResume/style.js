@@ -10,25 +10,35 @@ export const Container = styled.div`
 
   .container-top {
     display: grid;
+    grid-gap: 10px 50px;
     grid-template-areas:
       'title title'
       'items items-price'
       'delivery-tex delivery-price-tex';
+
+    .title {
+      grid-area: title;
+      margin-bottom: 20px;
+    }
+    .items {
+      grid-area: items;
+    }
+    .items-price {
+      grid-area: items-price;
+    }
+    .delivery-tex {
+      grid-area: delivery-tex;
+    }
+    .delivery-price-tex {
+      grid-area: delivery-price-tex;
+    }
   }
 
-  .title {
-    grid-area: title;
-  }
-  .items {
-    grid-area: items;
-  }
-  .items-price {
-    grid-area: items-price;
-  }
-  .delivery-tex {
-    grid-area: delivery-tex;
-  }
-  .delivery-price-tex {
-    grid-area: delivery-price-tex;
+  .container-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 24px;
+    margin-top: 50px;
   }
 `
