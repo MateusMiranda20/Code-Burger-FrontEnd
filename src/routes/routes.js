@@ -10,7 +10,7 @@ function MyRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
         <Route exact path="/" element={<Home />} />
-        <Route path="/produto" element={<Product />} />
+        <Route path="/produtos" element={<Product />} />
         <Route path="/carrinho" element={<Cart />} />
       </Routes>
     </Router>
