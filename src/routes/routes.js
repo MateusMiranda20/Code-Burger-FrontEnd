@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import { Home, Login, Product, Register, Cart } from '../Containers'
+import PrivateRoute from './private-route'
 
 function MyRoutes() {
   return (
@@ -9,7 +10,9 @@ function MyRoutes() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
-        <Route exact path="/" element={<Home />} />
+        <Route path="/" element={<Home />}>
+          <Route exact path="*" element={<PrivateRoute />} />
+        </Route>
         <Route path="/produtos" element={<Product />} />
         <Route path="/carrinho" element={<Cart />} />
       </Routes>
