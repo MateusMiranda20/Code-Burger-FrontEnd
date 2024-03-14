@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import BackgroundImg from '../../assets/Background.svg'
+import BackgroundImg from '../../assets/Background.png'
 
 export const Container = styled.div`
   height: 100vh;

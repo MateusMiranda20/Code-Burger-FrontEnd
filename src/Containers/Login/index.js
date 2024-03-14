@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
-import LoginImagem from '../../assets/Login.svg'
+import LoginImagem from '../../assets/Login.png'
 import Logo from '../../assets/Logo.svg'
 import { Button } from '../../components'
 import { useUser } from '../../hooks/UserContext'

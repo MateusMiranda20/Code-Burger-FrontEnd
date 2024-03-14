@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
 import Logo from '../../assets/Logo.svg'
-import Registerimg from '../../assets/Register.svg'
+import Registerimg from '../../assets/Register.png'
 import { Button } from '../../components'
 import api from '../../services/api'
 import {
