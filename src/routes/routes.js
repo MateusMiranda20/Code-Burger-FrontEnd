@@ -8,13 +8,14 @@ function MyRoutes() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Register />} />
-        <Route path="*" element={<Home />}>
-          <Route path="*" element={<PrivateRoute />} />
+        <Route Component={Login} path="/login" />
+        <Route Component={Register} path="/cadastro" />
+
+        <Route element={<PrivateRoute />}>
+          <Route element={<Home />} path="/" exact />
+          <Route element={<Product />} path="/produtos" exact />
+          <Route element={<Cart />} path="/carrinho" exact />
         </Route>
-        <Route path="/produtos" element={<Product />} />
-        <Route path="/carrinho" element={<Cart />} />
       </Routes>
     </Router>
   )

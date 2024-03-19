@@ -47,6 +47,9 @@
                     "order": "asc",
                     "ignoreCase": true
                 }
+            }, 
+            {
+                "extends": ["eslint:recommended", "plugin:prettier/recommended"]
             }
         ]
     }
